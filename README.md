@@ -4,13 +4,13 @@ The methods in these R functions are based on work by Guo and Small (2016).
 
 ## Installation
 To load these functions into R, run the following commands. (Indeed, we need to change this repo to public or change a setting about token)
-```{r}
+```{R}
 source("https://raw.githubusercontent.com/zijguo/Control-function/main/cf.R")
 ```
 ## Examples
 We wil introduce a simulation example to show how we can use. The code example.R has additional working examples.
 
-```{r}
+```{R}
 rm(list = ls())
 
 ### Use cf.R file as source
