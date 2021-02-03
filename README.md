@@ -1,5 +1,5 @@
 # Control-function
---------------------
+
 The methods in these R functions are based on work by Guo and Small (2016).
 
 ## Installation
