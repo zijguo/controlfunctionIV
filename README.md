@@ -4,13 +4,15 @@ The methods in these R functions are based on work by Guo and Small (2016).
 
 ## Installation
 To load these functions into R, run the following commands. (Indeed, we need to change this repo to public or change a setting about token)
-```{R}
+
+```R
 source("https://raw.githubusercontent.com/zijguo/Control-function/main/cf.R")
 ```
+
 ## Examples
 We wil introduce a simulation example to show how we can use. The code example.R has additional working examples.
 
-```{R}
+```R
 rm(list = ls())
 
 ### Use cf.R file as source
@@ -54,8 +56,6 @@ true.coef <- c(1,1,10,10) # our true beta coefficient
   pret.fit <- pretest(y1~z1+y2+I(y2^2),y2~z1+z2+I(z2^2)) # Pretest estimator
   pret.fit$coefficients
   pret.fit$vcov
-
-
 ```
 ## References
 Guo, Z. and D. S. Small (2016), [Control function instrumental variable estimation of nonlinear
