@@ -3,7 +3,7 @@ rm(list = ls())
 ### use cf.R file as source
 source("C:/Users/owner/Dropbox/Taehyeon/Violence-Data/cf.R")
 
-
+library(MASS)
 library(mvtnorm)
 library(AER)
 library(foreign)
@@ -51,7 +51,7 @@ apply(mse,2,sum) # comparing mse of 2sls vs cf
 beta2 <- 1; beta3 <- 0.2; beta4 <- 1
 gamma1 <- 1; gamma2 <- 0.2
 delta <- 0.5
-
+true.coef <- c(beta2,beta3)
 
 iv.coef <- matrix(NA,nrow = iter,ncol = length(true.coef))
 cf.coef <- matrix(NA,nrow = iter,ncol = length(true.coef))
@@ -68,17 +68,17 @@ for (i in 1:iter) {
   y2 <- -gamma2+gamma1*z2+gamma2*z2^2+v2
   w <- delta*v2^2+temp
   y1 <- beta2*y2+beta3*y2^2+beta4*w+u1
-
-  iv.fit <- ivreg(y1~z1+y2+I(y2^2)|z1+z2+I(z2^2)) # 2SLS
-  iv.coef[i,] <- iv.fit$coefficients
+  
+  iv.fit <- ivreg(y1~0+y2+I(y2^2)+w|z2+I(z2^2)) # 2SLS
+  iv.coef[i,] <- iv.fit$coefficients[-3]
   iv.mse <- mean((iv.coef[i,]-true.coef)^2)
 
-  cf.fit <- cf(y1~z1+y2+I(y2^2),y2~z1+z2+I(z2^2)) # Control function
-  cf.coef[i,] <- cf.fit$coefficients
+  cf.fit <- cf(y1~0+y2+I(y2^2)+w,y2~z2+I(z2^2)) # Control function
+  cf.coef[i,] <- cf.fit$coefficients[-3]
   cf.mse <- mean((cf.coef[i,]-true.coef)^2)
 
-  pret.fit <- pretest(y1~z1+y2+I(y2^2),y2~z1+z2+I(z2^2)) # Pretest estimator
-  pret.coef[i,] <- pret.fit$coefficients
+  pret.fit <- pretest(y1~0+y2+I(y2^2)+w,y2~z2+I(z2^2)) # Pretest estimator
+  pret.coef[i,] <- pret.fit$coefficients[-3]
 
   ifelse(iv.mse<cf.mse,mse[i,1] <-1,mse[i,2] <- 1)
 
@@ -89,9 +89,8 @@ apply(mse,2,sum) # comparing mse of 2sls vs cf
 ## non-normal distribution
 
 ### 1. double exponential
-install.packages("nimble")
-library(nimble)
 
+library(nimble) # to get function which can generate double exponential
 
 true.coef <- c(1,1,10,10)
 iv.coef <- matrix(NA,nrow = iter,ncol = length(true.coef))
