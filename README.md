@@ -18,7 +18,7 @@ rm(list = ls())
 ### Use cf.R file as source
 source("C:/Users/owner/Dropbox/Taehyeon/Violence-Data/cf.R")
 
-
+library(MASS)
 library(mvtnorm)
 library(AER) # to use ivreg function which have two stage least square
 library(foreign)
