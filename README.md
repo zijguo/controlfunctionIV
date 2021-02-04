@@ -3,7 +3,7 @@
 The methods in these R functions are based on work by Guo and Small (2016).
 
 ## Installation
-To load these functions into R, run the following commands. (Indeed, we need to change this repo to public or change a setting about token)
+To load these functions into R, run the following commands. 
 
 ```R
 source("https://raw.githubusercontent.com/zijguo/Control-function/main/cf.R")
