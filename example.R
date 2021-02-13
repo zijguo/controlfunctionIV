@@ -1,8 +1,8 @@
-rm(list = ls())
+### Obtain the control function (cf) code from Github ###  
+source("https://raw.githubusercontent.com/zijguo/Control-function/main/cf.R")
 
-### use cf.R file as source
-source("C:/Users/owner/Dropbox/Taehyeon/Violence-Data/cf.R")
-
+### R Packages to Load ###
+# The AER package is only needed to run the working example.
 library(MASS)
 library(mvtnorm)
 library(AER)
