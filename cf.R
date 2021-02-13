@@ -1,3 +1,29 @@
+### cf.R
+### Function: Implements the control function method
+###           for estimation and inference of nonlinear
+###           treatment effects 
+###           as developed in Guo and Small (2016)             
+### Maintainer: Taehyeon Koo
+### E-mail: tk587@scarletmail.rutgers.edu
+
+### cf
+### FUNCTION: Point estimate, covariance matrix for treatment effect with  
+###           using a single-sample, individual-level data via CF. 
+### INPUT: Outcome formula, such as Y ~ X + D + g_2(D) + ... + g_k(D)
+###        Treatment formula, such as D ~ X + Z + h_2(Z) + ... + h_k(Z) 
+###        where
+###        Y, continuous, non-missing, numeric outcome vector (u by 1 vector)
+###        D, continuous or discrete, non-missing, numeric treatment vector (n by 1 vector)        
+###        Z, continuous or discrete, non-missing, numeric instrument matrix containing p_z 
+###           instruments (n by p_z matrix)
+###        X, optional continuous or discrete, non-missing, numeric matrix containing p_x 
+###           covariates (n by p_x matrix)
+###        g_2,...,g_k, functions of treatment variables, eg. D^2
+###        h_2,...,h_k, functions of instrument variables, eg. exp(Z) 
+### OUTPUT: a list (a) coefficients (scalar numeric value:
+###                                  the estimate of the treatment effect)
+###                (b) vcov (numeric matrix:
+###                          estimated covariance matrix of coefficients)
 library(Formula)
 
 cf <- function(outcome.formula,treatment.formula){
@@ -21,6 +47,27 @@ cf <- function(outcome.formula,treatment.formula){
   return(cf.val)
 }
 
+### Pretest
+### FUNCTION: Point estimate, covariance matrix for treatment effect with  
+###           using a single-sample, individual-level data via Pretest approach. 
+### INPUT: Outcome formula, such as Y ~ X + D + g_2(D) + ... + g_k(D)
+###        Treatment formula, such as D ~ X + Z + h_2(Z) + ... + h_k(Z) 
+###        where
+###        Y, continuous, non-missing, numeric outcome vector (u by 1 vector)
+###        D, continuous or discrete, non-missing, numeric treatment vector (n by 1 vector)        
+###        Z, continuous or discrete, non-missing, numeric instrument matrix containing p_z 
+###           instruments (n by p_z matrix)
+###        X, optional continuous or discrete, non-missing, numeric matrix containing p_x 
+###           covariates (n by p_x matrix)
+###        g_2,...,g_k, functions of treatment variables
+###        h_2,...,h_k, functions of instrument variables
+### OUTPUT: a list (a) coefficients (scalar numeric value:
+###                                  the estimate of the treatment effect)
+###                (b) vcov (numeric matrix: estimated covariance matrix of coefficients)                
+###                (c) Hausman_statistic (scalar numeric value : 
+###                                       test statistic of the validity of cf)                                  
+###                (d) p_value (scalar numeric value : 
+###                             asymptotic chi square p-value of Hausman statistic)
 pretest <- function(outcome.formula,treatment.formula){
   outcome.formula <- Formula(outcome.formula)
   treatment.formula <- Formula(treatment.formula)
