@@ -16,7 +16,7 @@ We wil introduce a simulation example to show how we can use. The code example.R
 rm(list = ls())
 
 ### Use cf.R file as source
-source("C:/Users/owner/Dropbox/Taehyeon/Violence-Data/cf.R")
+source("https://raw.githubusercontent.com/zijguo/Control-function/main/cf.R")
 
 library(MASS)
 library(mvtnorm)
