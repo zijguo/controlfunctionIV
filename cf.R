@@ -96,13 +96,13 @@ pretest <- function(outcome.formula,treatment.formula,verbose=FALSE){
   alpha <- 0.05
   if (prob.larger.than.diff>alpha) {
     if (verbose){
-      cat("Level",alpha, "Pretest estimator is Control function estimator.")
+      cat("Level",alpha, "Pretest estimator is Control function estimator.","\n")
       }
     pretest.coef <- cf.coef
     pretest.vcov <- cf.vcov
   } else{
       if (verbose){
-        cat("Level",alpha, "Pretest estimator is two stage least square estimator.")
+        cat("Level",alpha, "Pretest estimator is two stage least square estimator.","\n")
     }
     pretest.coef <- iv.coef
     pretest.vcov <- iv.vcov
