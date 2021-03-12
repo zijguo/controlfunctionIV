@@ -50,8 +50,9 @@ cf <- function(outcome.formula,treatment.formula){
 ### Pretest
 ### FUNCTION: Point estimate, covariance matrix for treatment effect with  
 ###           using a single-sample, individual-level data via Pretest approach. 
-### INPUT: Outcome formula, such as Y ~ X + D + g_2(D) + ... + g_k(D)
-###        Treatment formula, such as D ~ X + Z + h_2(Z) + ... + h_k(Z) 
+### INPUT: Outcome formula, such as Y ~ X + D + g_2(D) + ... + g_k(D),
+###        Treatment formula, such as D ~ X + Z + h_2(Z) + ... + h_k(Z),
+###        verbose, which estimator is chosen.
 ###        where
 ###        Y, continuous, non-missing, numeric outcome vector (u by 1 vector)
 ###        D, continuous or discrete, non-missing, numeric treatment vector (n by 1 vector)        
@@ -61,6 +62,7 @@ cf <- function(outcome.formula,treatment.formula){
 ###           covariates (n by p_x matrix)
 ###        g_2,...,g_k, functions of treatment variables
 ###        h_2,...,h_k, functions of instrument variables
+###   
 ### OUTPUT: a list (a) coefficients (scalar numeric value:
 ###                                  the estimate of the treatment effect)
 ###                (b) vcov (numeric matrix: estimated covariance matrix of coefficients)                
@@ -68,7 +70,7 @@ cf <- function(outcome.formula,treatment.formula){
 ###                                       test statistic of the validity of cf)                                  
 ###                (d) p_value (scalar numeric value : 
 ###                             asymptotic chi square p-value of Hausman statistic)
-pretest <- function(outcome.formula,treatment.formula,verbose=TRUE){
+pretest <- function(outcome.formula,treatment.formula,verbose=FALSE){
   outcome.formula <- Formula(outcome.formula)
   treatment.formula <- Formula(treatment.formula)
 
