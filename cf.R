@@ -38,7 +38,7 @@ cf <- function(outcome.formula,treatment.formula){
   cf.coef <- coef(cf.fit)
   cf.coef <- cf.coef[-which(names(cf.coef)=="e1")]
   cf.vcov <- vcov(cf.fit)
-  cf.vcov <- cf.cov[-which(rownames(cf.vcov)=="e1"),-which(colnames(cf.vcov)=="e1")]
+  cf.vcov <- cf.vcov[-which(rownames(cf.vcov)=="e1"),-which(colnames(cf.vcov)=="e1")]
 
   cf.val <- list(
     "coefficients" = cf.coef,
