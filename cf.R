@@ -42,7 +42,7 @@ cf <- function(outcome.formula,treatment.formula){
 
   cf.val <- list(
     "coefficients" = cf.coef,
-    "vcov" = cf.vcov,
+    "vcov" = cf.vcov
   )
   return(cf.val)
 }
@@ -68,7 +68,7 @@ cf <- function(outcome.formula,treatment.formula){
 ###                                       test statistic of the validity of cf)                                  
 ###                (d) p_value (scalar numeric value : 
 ###                             asymptotic chi square p-value of Hausman statistic)
-pretest <- function(outcome.formula,treatment.formula){
+pretest <- function(outcome.formula,treatment.formula,verbose=TRUE){
   outcome.formula <- Formula(outcome.formula)
   treatment.formula <- Formula(treatment.formula)
 
@@ -93,11 +93,15 @@ pretest <- function(outcome.formula,treatment.formula){
   prob.larger.than.diff
   alpha <- 0.05
   if (prob.larger.than.diff>alpha) {
-    cat("Level",alpha, "Pretest estimator is Control function estimator.")
+    if (verbose){
+      cat("Level",alpha, "Pretest estimator is Control function estimator.")
+      }
     pretest.coef <- cf.coef
     pretest.vcov <- cf.vcov
   } else{
-    cat("Level",alpha, "Pretest estimator is two stage least square estimator.")
+      if (verbose){
+        cat("Level",alpha, "Pretest estimator is two stage least square estimator.")
+    }
     pretest.coef <- iv.coef
     pretest.vcov <- iv.vcov
   }
