@@ -103,7 +103,7 @@ pretest <- function(outcome.formula,treatment.formula,verbose=FALSE){
   } else{
       if (verbose){
         cat("Level",alpha, "Pretest estimator is two stage least square estimator.","\n")
-    }
+      }
     pretest.coef <- iv.coef
     pretest.vcov <- iv.vcov
   }
