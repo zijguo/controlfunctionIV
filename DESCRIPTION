@@ -1,0 +1,27 @@
+Package: controlfunctionIV
+Type: Package
+Title: Control Function Methods with Possibly Invalid Instrumental Variables
+Version: 0.1.0
+Authors@R: 
+  c(person(given = "Taehyeon",
+           family = "Koo",
+           role = "aut"),
+    person(given = "Sai",
+           family = "Li",
+           role = "aut"),
+    person(given = "Dylan",
+           family = "Small",
+           role = "ctb"),
+    person(given = "Zijian",
+           family = "Guo",
+           role = c("aut","cre","cph"),
+           email = "zijguo@stat.rutgers.edu"))
+Description: Inference with control function methods for nonlinear outcome models when the model is known ('Guo and Small' (2016) <arxiv:1602.01051>) and when unknown but semiparametric ('Li and Guo' (2021) <arxiv:2010.09922>).
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: dr, orthoDr, stats, AER, Formula
+RoxygenNote: 7.1.2
+URL: https://github.com/zijguo/controlfunctionIV
+Depends:
+    R (>= 2.10)
