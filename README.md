@@ -100,20 +100,20 @@ SpotIV performs causal inference in the semi-parametric outcome model with possi
 > SpotIV.model <- SpotIV(Y,D,Z,X,invalid = TRUE,d1 =d1, d2 = d2,w0 = w0)
 > summary(SpotIV.model)
 
-Relevant Instruments: motheduc fatheduc huseduc 
+Relevant Instruments: Z.3 
 
-Valid Instruments: motheduc fatheduc huseduc 
+Valid Instruments: Z.3 
  
 Thus, Majority rule holds. 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-BetaHat: 0.8791451 
+BetaHat: -0.6168097 
 
-CATEHat: 0.1298192 
+CATEHat: -0.007856555 
 
-Standard error of CATEHat: 0.3007202 
+Standard error of CATEHat: 0.06534695 
 
-95% Confidence Interval for CATE: [-0.4595816,0.71922]
+95% Confidence Interval for CATE: [-0.1359342,0.1202211]
 ```
 
 ```R
