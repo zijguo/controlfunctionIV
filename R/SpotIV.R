@@ -131,7 +131,7 @@ SpotIV<- function(Y, D, Z, X=NULL, intercept=TRUE, invalid=TRUE,  d1, d2 , w0,
                                             cbind(diag(0,pz), SIR.re$vGam[1:pz,1:pz])))
     SHat<-Select.re$SHat
     if(length(Select.re$VHat)< length(SHat)/2){
-      cat('Majority rule fails.','\n')
+      message('Majority rule fails.','\n')
       Maj.pass=F
     }
     VHat <- as.numeric(Select.re$VHat)

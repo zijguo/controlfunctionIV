@@ -2,6 +2,7 @@
 #'
 #' @description Summary function for SpotIV and ProbitControl
 #' @keywords internal
+#' @return No return value, called for summary.
 #' @export
 summary.SpotIV <- function(object,...){
   SpotIV <- object

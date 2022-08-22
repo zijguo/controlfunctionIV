@@ -118,7 +118,7 @@ ProbitControl<- function(Y, D, Z, X=NULL, intercept=TRUE, invalid=TRUE,
     SHat<-Select.re$SHat
     VHat <- Select.re$VHat
     if(length(Select.re$VHat)<= length(SHat)/2){
-      cat('Majority rule fails.','\n')
+      message('Majority rule fails.','\n')
       Maj.pass=F
     }
     beta.hat<-median(Gam.hat[SHat]/gam.hat[SHat])

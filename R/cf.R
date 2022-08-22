@@ -227,6 +227,7 @@ cf <- function(formula,d1 = NULL,d2 = NULL){
 #'
 #' @description Summary function for cf
 #' @keywords internal
+#' @return No return value, called for summary.
 #' @export
 summary.cf<- function(object,...){
   cf <- object

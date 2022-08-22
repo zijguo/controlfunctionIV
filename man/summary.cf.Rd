@@ -6,6 +6,9 @@
 \usage{
 \method{summary}{cf}(object, ...)
 }
+\value{
+No return value, called for summary.
+}
 \description{
 Summary function for cf
 }

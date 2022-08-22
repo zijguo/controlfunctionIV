@@ -16,7 +16,7 @@ Authors@R:
            family = "Guo",
            role = c("aut","cre","cph"),
            email = "zijguo@stat.rutgers.edu"))
-Description: Inference with control function methods for nonlinear outcome models when the model is known ('Guo and Small' (2016) <arxiv:1602.01051>) and when unknown but semiparametric ('Li and Guo' (2021) <arxiv:2010.09922>).
+Description: Inference with control function methods for nonlinear outcome models when the model is known ('Guo and Small' (2016) <arXiv:1602.01051>) and when unknown but semiparametric ('Li and Guo' (2021) <arXiv:2010.09922>).
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

@@ -76,6 +76,7 @@ pretest <- function(formula,alpha = 0.05){
 #'
 #' @description Summary function for pretest
 #' @keywords internal
+#' @return No return value, called for summary.
 #' @export
 summary.pretest<- function(object,...){
   pretest <- object
